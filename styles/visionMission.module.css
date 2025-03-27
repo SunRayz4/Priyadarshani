@@ -1,93 +1,180 @@
-/* styles/visionMission.module.css */
-
+/* Content Wrapper */
 .contentWrapper {
-    padding-top: 80px; /* Adjust based on your navbar height */
-    text-align: center; /* Center the main heading */
-  }
-  
-  .mainHeading {
-    font-size: 36px;
-    color: #007bff; /* Blue color for the heading */
-    margin-bottom: 40px; /* Space below the main heading */
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Fade-in effect for the whole page */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Main Heading */
+.mainHeading {
+  font-size: 2.0rem;
+  color: #003366; /* Darker blue for the heading */
+  text-transform: uppercase;
+  margin-top: 35px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px; /* Adding a bit of spacing between letters */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation for header */
+  position: relative; /* Necessary for the pseudo-element to be positioned */
+}
+
+/* Blue Line Below Main Heading */
+.mainHeading::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Position just below the heading */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background-color: #007bff; /* Blue color */
+  border-radius: 2px;
+}
+
+/* Cards Container */
+.cardsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s; /* Fade-in effect for the cards container */
+  transition: transform 0.3s ease;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 48%;
+  padding: 20px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px); /* Initial state for the animation */
+  animation: slideUp 0.8s forwards ease-out; /* Slide-up animation for the cards */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardContent {
+  padding: 10px;
+}
+
+.cardIcon {
+  background-color: rgba(255, 255, 255, 0.8); /* Lighter background for the icon */
+  border-radius: 50%;
+  padding: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Card Headings */
+.card h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Card Text */
+.card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hover Effects for Cards */
+.card:hover {
+  transform: translateY(-10px); /* Lift the card slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Icon Hover Effect */
+.cardIcon:hover {
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+/* Button Hover Effects */
+.btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+}
+
+.btn:focus {
+  outline: 2px solid #0056b3;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
   .cardsContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 40px;
-  }
-  
-  .card {
-    background-color: #f1f9fc; /* Light background for the card */
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    padding: 40px 30px;
-    flex: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: #333; /* Darker text color for contrast */
-    position: relative;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
-    max-height: 600px; /* Limit card height */
-    overflow: hidden;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
   }
-  
-  .card:hover {
-    transform: translateY(-10px); /* Slight lift effect */
-    opacity: 0.9; /* Slight transparency on hover */
-  }
-  
-  .cardContent {
-    position: relative;
-    z-index: 1;
-    max-height: 100%;
-    overflow-y: auto; /* Scrollable content inside the card */
-  }
-  
-  .cardIcon {
-    background-color: rgba(255, 255, 255, 0.8); /* Lighter background for the icon */
-    border-radius: 50%;
-    padding: 20px;
-    display: inline-block;
+
+  .card {
+    width: 100%;
     margin-bottom: 20px;
   }
-  
-  .card h2 {
-    color: #007bff; /* Blue color for the card title */
-    margin: 20px 0;
-    font-size: 24px;
+
+  .mainHeading {
+    font-size: 2.5rem;
   }
-  
-  .card p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333; /* Darker text color */
-    max-width: 80%;
-    margin: 0 auto;
+}
+
+/* Keyframes for Animations */
+
+/* Fade-in effect for the page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .card.visionCard {
-    background-color: #e0f7fa; /* Light cyan for Vision card */
+  to {
+    opacity: 1;
   }
-  
-  .card.missionCard {
-    background-color: #f1f8e9; /* Light green for Mission card */
+}
+
+/* Slide-up effect for cards */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Add a dark overlay for better text visibility */
-  .card:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.4); /* Light overlay */
-    border-radius: 12px;
-    z-index: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Button Hover Animation */
+@keyframes buttonHover {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}

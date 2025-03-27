@@ -1,0 +1,177 @@
+/* Main container styling */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 20px 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+
+
+/* Header Styling */
+.heading {
+  font-size: 2.0rem;
+  color: #003366;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  position: relative;
+  opacity: 0;
+  animation: fadeInHeader 1s ease-out forwards; /* Fade-in animation */
+}
+
+/* Underline animation for header */
+.heading::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #007bff;
+  border-radius: 8px;
+  opacity: 0;
+  animation: underlineEffect 1s ease-out forwards 0.5s; /* Animated underline */
+}
+
+/* Row for each paragraph + image */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInRow 1s ease-out forwards 0.6s; /* Row fade-in animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: transform 0.3s ease-in-out; /* Smooth row transition */
+}
+
+/* Image Styling */
+.imageWrapper {
+  flex: 1;
+  text-align: center;
+  margin: 0 20px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInImage 1s ease-out forwards 0.8s; /* Image fade-in animation */
+}
+
+/* Image Hover Effect */
+.childImage {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions for hover */
+}
+
+.childImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Content styling */
+.content {
+  flex: 1;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+  padding-left: 20px;
+  opacity: 0;
+  animation: fadeInContent 1s ease-out forwards 1s; /* Content fade-in animation */
+}
+
+/* Paragraph specific styling */
+.paragraph {
+  margin-bottom: 25px;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column; /* Stack image and paragraph vertically on smaller screens */
+    align-items: center; /* Center the content and image */
+  }
+
+  .childImage {
+    width: 100%; /* Make image fit smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .content {
+    font-size: 1.1rem;
+    padding-left: 0; /* Remove extra padding */
+  }
+
+  .heading {
+    font-size: 2.2rem;
+  }
+}
+
+/* Keyframes for animations */
+
+/* Fade-in effect for header */
+@keyframes fadeInHeader {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Underline effect for header */
+@keyframes underlineEffect {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 80px;
+  }
+}
+
+/* Fade-in effect for row */
+@keyframes fadeInRow {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in effect for image */
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade-in effect for content */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

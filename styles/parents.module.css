@@ -1,0 +1,166 @@
+/* Main container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 20px; /* Padding at the top for space from navbar */
+  background-color: #ffffff; /* White background for the main container */
+  border-radius: 15px; /* Slightly rounded corners */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition effect for hover */
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+/* Hover effect on container
+.container:hover {
+  transform: translateY(-10px); /* Lift effect on hover 
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); /* Add a stronger shadow effect on hover 
+} */
+
+/* Layout for content and image in columns, but image on the right */
+.contentWrapper {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between image and content */
+  margin-top: 30px;
+  flex-direction: row-reverse; /* This will place the image on the right side */
+  transition: transform 0.5s ease-in-out; /* Smooth transition on content layout */
+}
+
+/* Image styling */
+.imageWrapper {
+  flex: 1; /* Ensure image and content have equal width */
+  text-align: center; /* Center the image */
+  margin-left: 20px; /* Space between image and content */
+}
+
+.parentsImage {
+  width: 90%; /* Ensure image takes up the full available width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the image */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition on hover */
+  margin-top: 50px;
+}
+
+.parentsImage:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Add stronger shadow effect on hover */
+}
+
+/* Content section styling */
+.content {
+  flex: 1; /* Content takes up the other 50% of the space */
+  text-align: left;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+  padding-right: 20px; /* Padding on the right instead of left, as content is now on the left */
+  opacity: 0; /* Initially invisible for fade-in animation */
+  animation: fadeInContent 1s ease-in-out forwards; /* Fade-in effect */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity change */
+}
+
+/* Paragraph specific styling */
+.paragraph {
+  margin-bottom: 25px;
+  padding-left: 20px; /* Indentation for paragraphs */
+  
+}
+
+/* Header Styling */
+.heading {
+  font-size: 2.2rem;
+  color: #003366; /* Darker blue for the heading */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px; /* Adding a bit of spacing between letters */
+  position: relative; /* Necessary for the underline */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+  transition: color 0.3s ease, text-shadow 0.3s ease-in-out; /* Smooth color and text-shadow transition */
+}
+
+/* Underline effect (branch-like) for the header */
+.heading::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* Adjust position to be just below the heading */
+  left: 50%;
+  transform: translateX(-50%); /* Center the line */
+  width: 80px; /* Width of the underline */
+  height: 4px; /* Height of the underline */
+  background-color: #007bff; /* Blue color */
+  border-radius: 8px; /* Rounded edges for a more natural look */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Add glow effect around the underline */
+  opacity: 0; /* Start with the underline hidden */
+  animation: underlineEffect 1s ease-out forwards 0.3s; /* Animation for the underline */
+}
+
+/* Animation for underline effect */
+@keyframes underlineEffect {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 80px;
+  }
+}
+
+/* Fade-in animation for content */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade-in animation for header */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 10px;
+  }
+
+  .contentWrapper {
+    flex-direction: column; /* Stack image and content vertically on smaller screens */
+    align-items: center; /* Center content and image */
+    transition: transform 0.5s ease-in-out; /* Transition for responsive layout */
+  }
+
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .content {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding-left: 0; /* Remove extra left padding */
+  }
+
+  .paragraph {
+    padding-left: 0; /* Remove padding on smaller screens */
+  }
+
+  .parentsImage {
+    max-width: 60%; /* Adjust the image size on smaller screens */
+    margin: 0 auto; /* Center the image */
+  }
+}

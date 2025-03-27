@@ -1,0 +1,237 @@
+.container {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+  opacity: 1;
+  transform: translateY(0);
+  transition: width 2s, height 2s, transform 2s;
+  animation: fadeIn 1s forwards;
+
+ 
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  opacity: 0; /* Start with hidden */
+  transform: translateY(30px); /* Slide from below */
+  animation: fadeInUp 1s forwards 0.5s; /* Delay the heading animation */
+}
+
+.heading::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #3b82f6;
+  border-radius: 2px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+  transition: transform 0.8s ease-in-out;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin-left: 180px;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  position: relative;
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  animation: fadeInUp 1s forwards;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Slight upward movement on hover */
+  transition: transform 0.3s ease-in-out;
+}
+
+.branchImage {
+  width: 100%;
+  height: 100%;
+  margin-top: -50px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  opacity: 1; /* Initially hidden */
+  transition: opacity 1s ease-in-out, transform 0.5s ease;
+}
+
+.branchImage.visible {
+  opacity: 2;
+  transform: scale(1.05); /* Slight zoom-in when visible */
+}
+
+.branchImage:hover {
+  transform: scale(1); /* Zoom-in effect on hover */
+  transition: transform 0.3s ease;
+}
+
+/* Other existing styles remain unchanged */
+
+/* Style for the board text (set to grey) */
+.board {
+  color: #6b7280; /* Light grey color */
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style for the location text (set to a different color, e.g., blue) */
+.locationName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white; /* Blue color */
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.25rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s forwards 1s; /* Delay the location name appearance */
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.navButton {
+  background-color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: #3b82f6;
+}
+
+.navButton:hover {
+  background-color: #3b82f6;
+  color: white;
+  transform: scale(1.1);
+}
+
+.navButton:focus {
+  outline: 2px solid #3b82f6;
+}
+
+@media (max-width: 768px) {
+  .cardsWrapper {
+    flex-direction: column;
+  }
+
+  .card {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .locationName {
+    font-size: 1rem;
+  }
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.branchImage {
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  margin-top: 10px;
+}
+
+.board, .address, .locationName {
+  margin: 5px 0;
+}
+
+.locationName {
+  font-weight: bold;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}

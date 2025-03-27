@@ -1,0 +1,253 @@
+
+/* Content Wrapper */
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Fade-in effect for the whole page */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Main Heading */
+.mainHeading {
+  
+    font-size: 2.0rem;
+    color: #003366; /* Darker blue for the heading */
+    text-transform: uppercase;
+    margin-top: 35px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px; /* Adding a bit of spacing between letters */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation for header */
+    position: relative; /* Necessary for the pseudo-element to be positioned */
+  
+}
+
+/* Blue Line Below Main Heading */
+.mainHeading::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Position just below the heading */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background-color: #007bff; /* Blue color */
+  border-radius: 2px;
+}
+
+/* Cards Container */
+.cardsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s; /* Fade-in effect for the cards container */
+  transition: transform 0.3s ease;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 48%;
+  padding: 20px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px); /* Initial state for the animation */
+  animation: slideUp 0.8s forwards ease-out; /* Slide-up animation for the cards */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cardContent {
+  padding: 10px;
+}
+
+.cardIcon {
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Card Headings */
+.card h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Card Text */
+.card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hover Effects for Cards */
+.card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Icon Hover Effect */
+.cardIcon {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .card:hover .cardIcon {
+  transform: scale(1.2); /* Slightly enlarge the icon on hover 
+} */
+
+/* Button Hover Effects */
+.btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+}
+
+.btn:focus {
+  outline: 2px solid #0056b3;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+}
+
+/* Keyframes for Animations */
+
+/* Fade-in effect for the page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-in effect for the main heading */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Slide-up effect for cards */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Hover Animation */
+@keyframes buttonHover {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+/* Container for the whole map */
+.mapContainer {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: #cce5ff; /* Light blue background */
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+/* Styling for the SVG Road */
+.roadSvg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Location Markers */
+.location {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Numbered Location Pins */
+.pin {
+  width: 40px;
+  height: 40px;
+  background: #007bff;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 0 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Number Inside Pins */
+.pinNumber {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Labels Below Pins */
+.label {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px gray;
+  text-align: center;
+}

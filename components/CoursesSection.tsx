@@ -3,52 +3,82 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import styles from "@/styles/courses-section.module.css"
-
 const courses = [
   {
     id: 1,
-    title: "Science & Technology",
+    title: "Science (Physics, Chemistry, Biology)",
     description:
-      "Explore the wonders of science and cutting-edge technology through hands-on experiments and projects.",
-    icon: "🔬",
+      "Dive into the world of science with in-depth knowledge in Physics, Chemistry, and Biology. Conduct experiments and explore scientific theories.",
+    icon: "🧪",
     color: "blue",
   },
   {
     id: 2,
-    title: "Arts & Humanities",
-    description: "Develop creative thinking and cultural awareness through literature, history, and the arts.",
-    icon: "🎭",
-    color: "green",
+    title: "Mathematics (School Level)",
+    description:
+      "Strengthen problem-solving skills and build a strong foundation in mathematical concepts like algebra, geometry, and basic calculus.",
+    icon: "➗",
+    color: "cyan",
   },
   {
     id: 3,
-    title: "Mathematics",
-    description: "Build strong analytical skills and problem-solving abilities through our comprehensive math program.",
-    icon: "📊",
-    color: "amber",
+    title: "Commerce",
+    description:
+      "Learn the essentials of business, economics, accounting, and finance, preparing for a career in the world of commerce.",
+    icon: "💼",
+    color: "green",
   },
   {
     id: 4,
-    title: "Physical Education",
-    description: "Promote health, teamwork, and discipline through a variety of sports and physical activities.",
-    icon: "⚽",
-    color: "red",
+    title: "Humanities (History, Geography, Political Science)",
+    description:
+      "Study the social sciences to understand the history of societies, human geography, and political systems around the world.",
+    icon: "📚",
+    color: "amber",
   },
   {
     id: 5,
-    title: "Languages",
-    description: "Master multiple languages and develop strong communication skills for a global future.",
-    icon: "🌎",
-    color: "purple",
+    title: "Languages (English, Hindi, French, etc.)",
+    description:
+      "Enhance your communication skills in multiple languages, including English, Hindi, and foreign languages like French and Spanish.",
+    icon: "🗣️",
+    color: "red",
   },
   {
     id: 6,
     title: "Computer Science",
-    description: "Learn programming, web development, and digital literacy for the technology-driven world.",
+    description:
+      "Learn programming, web development, and digital literacy for the technology-driven world.",
     icon: "💻",
+    color: "purple",
+  },
+  {
+    id: 7,
+    title: "Economics (Junior College)",
+    description:
+      "Learn the fundamentals of economics, including microeconomics, macroeconomics, and economic policies shaping the world today.",
+    icon: "📈",
     color: "teal",
   },
-]
+  {
+    id: 8,
+    title: "Physical Education & Sports",
+    description:
+      "Focus on physical fitness, sportsmanship, and teamwork through a variety of indoor and outdoor sports.",
+    icon: "🏋️",
+    color: "teal",
+  },
+  {
+    id: 9,
+    title: "Environmental Studies",
+    description:
+      "Understand the environment, sustainability practices, and global environmental issues, focusing on real-world solutions.",
+    icon: "🌱",
+    color: "green",
+  },
+];
+
+
 
 export default function CoursesSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -103,9 +133,7 @@ export default function CoursesSection() {
               <div className={styles.courseIcon}>{course.icon}</div>
               <h3 className={styles.courseTitle}>{course.title}</h3>
               <p className={styles.courseDescription}>{course.description}</p>
-              <Link href={`/courses/${course.id}`} className={styles.courseLink}>
-                Learn More
-              </Link>
+            
             </div>
           ))}
         </div>
